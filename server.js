@@ -1,10 +1,10 @@
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 8080;
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 // Serve static files
 app.use(express.static(__dirname + '/public'));
 
-// Serve your app
-console.log('Served: http://localhost:' + port);
-app.listen(port);
+app.listen(PORT, () => {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
