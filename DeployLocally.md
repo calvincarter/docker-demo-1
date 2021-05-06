@@ -32,6 +32,9 @@ $ docker ps
 Stop Docker container
 $ docker stop <container id>
 
+Dynamically Stop Docker container by name
+$ docker stop $(docker ps -a -q --filter="name=gallant_darwin")
+
 Remove all images
 $ docker rmi $(docker images -a -q) -f
 ```
