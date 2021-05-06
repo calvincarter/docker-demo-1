@@ -1,9 +1,19 @@
-FROM tomcat:8.0-alpine
+FROM node:latest
 
-RUN rm -r /usr/local/tomcat/webapps/ROOT/*
+# Create app directory
+WORKDIR /usr/src/app
 
-COPY . /usr/local/tomcat/webapps/ROOT/
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm install --only=production
+
+# Bundle app source
+COPY . .
 
 EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
+CMD [ "node", "server.js" ]
