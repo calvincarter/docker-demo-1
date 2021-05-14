@@ -18,10 +18,10 @@ $ docker image ls
 
 ```
 Within same terminal:
-docker run -p 8080:8080 mywebapp
+docker run -p 3000:8080 mywebapp
 
 Detach Mode:
-docker run -d -p 8080:8080 mywebapp
+docker run --detach -p 3000:8080 mywebapp
 ```
 
 Other commands:
